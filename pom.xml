@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>parent-pom</artifactId>
+    <groupId>ch.ebu</groupId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.1.RELEASE</version>
+    </parent>
+
+    <modules>
+        <module>../zookeeper</module>
+    </modules>
+
+    <properties>
+        <!-- general properties -->
+        <java.version>8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <flyway.url>jdbc:mysql://localhost:3306/db?useSSL=false&amp;characterEncoding=UTF-8&amp;autoReconnect=true
+        </flyway.url>
+        <flyway.user>user</flyway.user>
+        <flyway.password>password</flyway.password>
+        <flyway.encoding>UTF-8</flyway.encoding>
+        <flyway.placeholders.database>db</flyway.placeholders.database>
+
+        <!-- dependency version -->
+        <apache-curator.version>4.0.1</apache-curator.version>
+        <commons-lang3.version>3.3.2</commons-lang3.version>
+        <feign.version>9.6.0</feign.version>
+        <hibernate.version>5.3.0.CR1</hibernate.version>
+        <jaxb-api.version>2.3.0</jaxb-api.version>
+        <jackson.version>2.9.5</jackson.version>
+        <lombok.version>1.16.20</lombok.version>
+        <mapstruct.version>1.2.0.Final</mapstruct.version>
+        <mysql.version>8.0.11</mysql.version>
+        <h2database.version>1.4.194</h2database.version>
+
+        <!-- plugin version -->
+        <plugin-flyway.version>5.0.7</plugin-flyway.version>
+        <plugin-build-helper.version>3.0.0</plugin-build-helper.version>
+        <plugin-changelog.version>2.3</plugin-changelog.version>
+        <plugin-compiler.version>3.7.0</plugin-compiler.version>
+        <plugin-dependency.version>3.1.0</plugin-dependency.version>
+        <plugin-findbugs.version>3.0.5</plugin-findbugs.version>
+        <plugin-owasp.version>3.1.2</plugin-owasp.version>
+        <plugin-surefire.version>2.21.0</plugin-surefire.version>
+        <plugin-versions.version>2.5</plugin-versions.version>
+    </properties>
+
+
+    <dependencies>
+        <!-- spring boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- xml json -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-hibernate5</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <!-- tools -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+
+        <!-- mapping -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-jdk8</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${mapstruct.version}</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>
